@@ -2,7 +2,7 @@ from fastapi import FastAPI
 import uvicorn
 
 from .config import Settings
-from .db import init_db
+from .db.db import init_db
 from .routers import quiz
 
 settings = Settings()

@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 from beanie import init_beanie
-from app.config import settings
+from config import settings
 
 async def init_db():
     client = AsyncIOMotorClient(settings.mongo_uri)
