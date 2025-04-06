@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, status
 
-from app.schemas.quiz import QuizGenerateRequest, QuizGenerateResponse, QuestionOptions, QuizQuestion, QuizSubmitRequest, QuizSubmitResponse
+from schemas.quiz import QuizGenerateRequest, QuizGenerateResponse, QuestionOptions, QuizQuestion, QuizSubmitRequest, QuizSubmitResponse
 
 router = APIRouter(prefix="/quiz", tags=["quiz"])
 
