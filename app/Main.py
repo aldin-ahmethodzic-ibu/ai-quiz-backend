@@ -1,0 +1,21 @@
+from fastapi import FastAPI
+import uvicorn
+
+from .Config import Settings
+from .DB import init_db
+from .routers import quiz
+
+settings = Settings()
+
+async def lifespan(app: FastAPI):
+    await init_db(app)
+    yield
+    # Shutdown event (optional, if you need to clean up resources)
+    # Perform any shutdown logic here if needed
+
+app = FastAPI(title=settings.app_name, debug=settings.debug, lifespan=lifespan)
+
+app.include_router(quiz.router)
+
+if __name__ == "__main__":
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=settings.debug)
