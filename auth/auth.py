@@ -1,5 +1,5 @@
 from fastapi import HTTPException
-from schemas.user import UserRegisterRequest, UserLoginRequest, UserRegisterResponse, Token
+from schemas.user import UserRegisterRequest, UserLoginRequest, UserRegisterResponse, UserLoginResponse
 from auth.security import hash_password, verify_password, create_access_token
 from models.user import User
 from datetime import timedelta
@@ -22,4 +22,4 @@ async def authenticate_user(user_data: UserLoginRequest):
         raise HTTPException(status_code=401, detail="Invalid email or password!")
 
     token = create_access_token(data={"sub": str(user.id)}, expires_delta=timedelta(minutes=30))
-    return Token(token, "Bearer")
+    return UserLoginResponse(access_token=token, token_type="Bearer")

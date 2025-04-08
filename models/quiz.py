@@ -1,7 +1,8 @@
 from beanie import Document
 from typing import List, Dict
+from odmantic import EmbeddedModel
 
-class Question:
+class Question(EmbeddedModel):
     question_id: int
     question_text: str
     options: Dict[str, str]

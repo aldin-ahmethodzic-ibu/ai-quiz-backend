@@ -13,13 +13,14 @@ class UserLoginRequest(BaseModel):
     email: EmailStr
     password: str
 
-#class UserLoginResponse(BaseModel):
-#    access_token: str
+class UserLoginResponse(BaseModel):
+    access_token: str
+    token_type: str
 
 class UserReadResponse(BaseModel):
     email: EmailStr
     username: str
 
-class Token(BaseModel):
-    access_token: str 
-    token_type: str
+#class Token(BaseModel):
+ #   access_token: str 
+  #  token_type: str

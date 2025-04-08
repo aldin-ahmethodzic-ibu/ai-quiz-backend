@@ -4,7 +4,7 @@ from schemas.quiz import QuizGenerateRequest, QuizGenerateResponse, QuestionOpti
 
 router = APIRouter(prefix="/quiz", tags=["quiz"])
 
-@router.post("/generate", response_model=QuizGenerateResponse, status_code=status.HTTP_201_GENERATED)
+@router.post("/generate", response_model=QuizGenerateResponse, status_code=status.HTTP_201_CREATED)
 async def generate_quiz(quiz_request: QuizGenerateRequest) -> QuizGenerateResponse:
     b = 1
     # Logic missing
