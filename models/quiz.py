@@ -9,8 +9,7 @@ class Question(EmbeddedModel):
     correct_option: str
 
 class Quiz(Document):
-    quiz_id: int
-    user_id: int
+#    user_id: int
     topic: str
     difficulty: str
     number_of_questions: int
@@ -18,4 +17,3 @@ class Quiz(Document):
 
     class Settings:
         collection = "quizzes"
-        indexes = ["quiz_id"]
