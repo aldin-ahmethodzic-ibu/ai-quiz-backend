@@ -10,8 +10,6 @@ settings = Settings()
 async def lifespan(app: FastAPI):
     await init_db()
     yield
-    # Shutdown event (optional, if you need to clean up resources)
-    # Perform any shutdown logic here if needed
 
 app = FastAPI(title=settings.app_name, debug=settings.debug, lifespan=lifespan)
 

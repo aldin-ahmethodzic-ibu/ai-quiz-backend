@@ -24,6 +24,7 @@ class QuizGenerateResponse(BaseModel):
 
 class QuizSubmitRequest(BaseModel):
     answers: Dict[int, str]
+    quiz_id: str
 
 class QuizSubmitResponse(BaseModel):
     score: int
