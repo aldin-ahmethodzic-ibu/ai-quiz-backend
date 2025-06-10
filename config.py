@@ -6,7 +6,7 @@ class Settings(BaseSettings):
     app_name: str = "AI Quiz App"
     debug: bool = True
     SECRET_KEY: str
-    ALGORITHM: str
+    JWT_ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     OPENAI_API_KEY: str
 
