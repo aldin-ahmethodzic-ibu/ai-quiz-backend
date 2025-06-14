@@ -9,7 +9,7 @@ class QuizResult(Document):
     score: int
     total_questions: int
     submitted_answers: Dict[int, str]
-    # created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     class Settings:
         name = "quiz_result"

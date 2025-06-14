@@ -9,8 +9,10 @@ router = APIRouter(prefix="/user", tags=["user"])
 @router.get("/me", response_model=UserReadResponse, status_code=status.HTTP_200_OK)
 async def read_user(current_user: User = Depends(get_current_user)):
     return UserReadResponse(
+        user_id=current_user.user_id,
         email=current_user.email,
-        username=current_user.username
+        username=current_user.username,
+        joined_at=current_user.joined_at
     )
 
 @router.get("/{user_id}/statistics")

@@ -1,6 +1,5 @@
 from models.quiz import Quiz
 from models.quiz_result import QuizResult
-from schemas.quiz import Question
 from fastapi import HTTPException
 
 async def get_quiz_by_id(quiz_id: int) -> Quiz:
@@ -11,7 +10,9 @@ async def get_quiz_by_id(quiz_id: int) -> Quiz:
 
 async def submit_quiz_logic(quiz, submitted_answers: dict):
     correct_answers = {q.question_id: q.correct_option for q in quiz.questions}
-    score = sum(1 for qid, ans in submitted_answers.items() if correct_answers.get(qid) == ans)
+    correct_count = sum(1 for qid, ans in submitted_answers.items() if correct_answers.get(qid) == ans)
+    total_questions = len(quiz.questions)
+    score = int((correct_count / total_questions) * 100)  # Convert to percentage
     return score
 
 async def get_quiz_result(quiz_id: int, user_id: str) -> QuizResult:

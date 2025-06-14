@@ -44,7 +44,7 @@ async def submit_quiz(quiz_submit_request: QuizSubmitRequest, current_user: User
     quiz_result = await quiz_result.insert()
     if not quiz_result: 
         raise HTTPException(status_code=500, detail="Failed to save quiz result")
-    
+
     return QuizSubmitResponse(
         score=score,
         total=quiz.number_of_questions,
